@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Hujan 🎂💗</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at top,
+                #ffe5f1,
+                #ffd1e5,
+                #ffc5df,
+                #e5d6ff);
+
+            color: #7b3657;
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           HALAMAN
+        ========================= */
+
+        .page {
+            display: none;
+
+            min-height: 100vh;
+
+            padding: 45px 20px 60px;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        /* =========================
+           EMOJI HUJAN
+        ========================= */
+
+        .emoji-rain {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            overflow: hidden;
+        }
+
+        .emoji-rain span {
+            position: absolute;
+
+            top: -70px;
+
+            font-size: 30px;
+
+            opacity: .75;
+
+            animation: fall linear infinite;
+        }
+
+        .emoji-rain span:nth-child(1) {
+            left: 3%;
+            animation-duration: 7s;
+        }
+
+        .emoji-rain span:nth-child(2) {
+            left: 12%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+        }
+
+        .emoji-rain span:nth-child(3) {
+            left: 22%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        .emoji-rain span:nth-child(4) {
+            left: 32%;
+            animation-duration: 8s;
+        }
+
+        .emoji-rain span:nth-child(5) {
+            left: 42%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .emoji-rain span:nth-child(6) {
+            left: 52%;
+            animation-duration: 7s;
+            animation-delay: 3s;
+        }
+
+        .emoji-rain span:nth-child(7) {
+            left: 62%;
+            animation-duration: 9s;
+        }
+
+        .emoji-rain span:nth-child(8) {
+            left: 72%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        .emoji-rain span:nth-child(9) {
+            left: 82%;
+            animation-duration: 8s;
+        }
+
+        .emoji-rain span:nth-child(10) {
+            left: 92%;
+            animation-duration: 7s;
+            animation-delay: 1s;
+        }
+
+        /* =========================
+           BADGE
+        ========================= */
+
+        .badge {
+            background: white;
+
+            padding: 10px 22px;
+
+            border-radius: 50px;
+
+            color: #e75b91;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(200,80,130,.2);
+
+            animation: floating 2s infinite;
+        }
+
+        /* =========================
+           JUDUL
+        ========================= */
+
+        h1 {
+            font-size: clamp(38px, 8vw, 75px);
+
+            color: #e94f8a;
+
+            text-shadow:
+                3px 3px 0 white,
+                0 8px 20px rgba(200,70,130,.2);
+
+            animation: titleBounce 2s infinite;
+        }
+
+        h2 {
+            font-size: clamp(30px, 6vw, 55px);
+
+            color: #a94977;
+
+            margin: 5px 0 15px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+        .instruction {
+            font-weight: bold;
+
+            margin: 10px 0;
+        }
+
+        /* =========================
+           KUE
+        ========================= */
+
+        .cake {
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: clamp(140px, 28vw, 250px);
+
+            transition: .2s;
+
+            filter:
+                drop-shadow(
+                    0 20px 20px
+                    rgba(150,50,100,.25)
+                );
+        }
+
+        .cake:hover {
+            transform:
+                scale(1.12)
+                rotate(-4deg);
+        }
+
+        .cake:active {
+            transform: scale(.85);
+        }
+
+        .cake-text {
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        button {
+            font-family: inherit;
+        }
+
+        .next,
+        .back {
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            transition: .2s;
+        }
+
+        .next {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff76a9,
+                    #c878ff
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(220,90,160,.3);
+        }
+
+        .back {
+            background: white;
+
+            color: #d65791;
+
+            box-shadow:
+                0 7px 20px
+                rgba(100,50,100,.15);
+        }
+
+        .next:hover,
+        .back:hover {
+            transform:
+                translateY(-4px)
+                scale(1.04);
+        }
+
+        /* =========================
+           HALAMAN 2
+        ========================= */
+
+        .letter {
+            width: min(900px, 95%);
+
+            background: rgba(255,255,255,.92);
+
+            border-radius: 30px;
+
+            padding: 30px;
+
+            margin: 20px 0;
+
+            box-shadow:
+                0 15px 40px
+                rgba(160,70,120,.18);
+
+            border:
+                3px dashed #ff9bc1;
+        }
+
+        .letter-icon {
+            font-size: 55px;
+
+            margin-bottom: 15px;
+        }
+
+        .letter p {
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin: 12px 0;
+        }
+
+        .big-wish {
+            font-size: 25px !important;
+
+            font-weight: bold;
+
+            color: #e44d8a;
+        }
+
+        .wish-box {
+            width: min(800px, 92%);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    white,
+                    #fff0f7
+                );
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(170,80,130,.15);
+        }
+
+        .wish-box .emoji {
+            font-size: 45px;
+        }
+
+        .wish-box p {
+            margin-top: 10px;
+
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        /* =========================
+           HALAMAN 3
+        ========================= */
+
+        .gift {
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: clamp(160px, 30vw, 280px);
+
+            margin: 20px;
+
+            filter:
+                drop-shadow(
+                    0 20px 20px
+                    rgba(140,50,100,.25)
+                );
+
+            transition: .2s;
+        }
+
+        .gift:hover {
+            transform:
+                scale(1.1)
+                rotate(4deg);
+        }
+
+        .gift:active {
+            transform: scale(.85);
+        }
+
+        #loveMessage {
+            display: none;
+
+            width: min(800px, 92%);
+
+            background:
+                rgba(255,255,255,.95);
+
+            border-radius: 30px;
+
+            padding: 30px;
+
+            margin: 10px 0 25px;
+
+            box-shadow:
+                0 15px 50px
+                rgba(220,60,130,.25);
+
+            animation: pop .6s ease;
+        }
+
+        #loveMessage h2 {
+            color: #e84d91;
+
+            font-size:
+                clamp(25px, 5vw, 45px);
+        }
+
+        /* =========================
+           EXPLOSION
+        ========================= */
+
+        .explosion {
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            z-index: 999;
+
+            pointer-events: none;
+
+            font-size: 38px;
+
+            animation:
+                explode 1.4s
+                ease-out forwards;
+        }
+
+        /* =========================
+           LOVE
+        ========================= */
+
+        .love {
+            position: fixed;
+
+            left: 50%;
+            top: 50%;
+
+            z-index: 9999;
+
+            pointer-events: none;
+
+            font-size: 30px;
+
+            animation:
+                loveExplosion
+                2.5s
+                ease-out forwards;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(-80px)
+                    rotate(0deg);
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+            }
+
+        }
+
+        @keyframes floating {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+        @keyframes titleBounce {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04);
+            }
+
+        }
+
+        @keyframes pop {
+
+            0% {
+                transform: scale(.3);
+
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+
+                opacity: 1;
+            }
+.by-dinara {
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #d85c91;
+    opacity: 0.85;
+}
+        }
+
+        @keyframes explode {
+
+            0% {
+                transform:
+                    translate(-50%,-50%)
+                    scale(.2);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate(var(--x),var(--y))
+                    scale(1.4)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        @keyframes loveExplosion {
+
+            0% {
+                transform:
+                    translate(-50%,-50%)
+                    scale(.2);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate(var(--x),var(--y))
+                    scale(1.5)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           HP
+        ========================= */
+
+        @media(max-width:600px) {
+
+            .page {
+                padding: 35px 15px;
+            }
+
+            .letter {
+                padding: 25px 18px;
+            }
+
+            .buttons {
+                width: 100%;
+            }
+
+            .next,
+            .back {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =================================
+     HUJAN EMOJI
+================================= -->
+
+<div class="emoji-rain">
+
+    <span>💗</span>
+    <span>✨</span>
+    <span>🎀</span>
+    <span>🌸</span>
+    <span>💖</span>
+    <span>🎉</span>
+    <span>💕</span>
+    <span>⭐</span>
+    <span>🎈</span>
+    <span>🥳</span>
+
+</div>
+
+
+<!-- =================================
+     HALAMAN 1
+================================= -->
+
+<section id="page1" class="page active">
+
+    <div class="badge">
+        🎀 SPECIAL DAY 🎀
+    </div>
+
+    <h1>
+        🎉 HAPPY BIRTHDAY 🎉
+    </h1>
+
+    <h2>
+        Hujan 💗
+    </h2>
+
+    <p class="subtitle">
+        Hari ini hari spesial kamu! 🥳✨
+    </p>
+
+    <p class="instruction">
+        👇 Klik kuenya yaa! 👇
+    </p>
+
+
+    <button
+        class="cake"
+        onclick="cakeExplosion()">
+
+        🎂
+
+    </button>
+
+
+    <p class="cake-text">
+        🎂 Klik kue untuk kejutan! 🎂
+    </p>
+
+
+    <button
+        class="next"
+        onclick="showPage(2)">
+
+        Lanjut ke Ucapan 💌 →
+
+    </button>
+
+</section>
+
+
+
+<!-- =================================
+     HALAMAN 2
+================================= -->
+
+<section id="page2" class="page">
+
+    <div class="badge">
+        💌 A LITTLE MESSAGE 💌
+    </div>
+
+    <h1>
+        Untuk Hujan 💗
+    </h1>
+
+
+    <div class="letter">
+
+        <div class="letter-icon">
+            💕
+        </div>
+
+        <p>
+            🎉 Selamat ulang tahun yaa! 🥳
+        </p>
+
+        <p>
+            Semoga di umur yang baru ini,
+            Hujan selalu diberikan kesehatan,
+            kebahagiaan, dan banyak hal baik
+            yang datang setiap harinya. ✨
+        </p>
+
+        <p>
+            Semoga semua impian dan cita-cita
+            yang sedang diperjuangkan bisa
+            tercapai satu per satu. 🌷
+        </p>
+
+        <p>
+            Jangan lupa untuk selalu tersenyum,
+            menikmati setiap proses, dan tetap
+            menjadi diri sendiri. 💗
+        </p>
+
+        <p>
+            Semoga hari-hari ke depannya
+            dipenuhi tawa, cerita indah,
+            orang-orang baik, dan kejutan
+            menyenangkan. 🎀✨
+        </p>
+
+        <p class="big-wish">
+            🎂 HAPPY BIRTHDAY HUJAN! 🎂
+        </p>
+
+    </div>
+
+
+    <div class="wish-box">
+
+        <div class="emoji">
+            🙏✨
+        </div>
+
+        <b>
+            Doa terbaik untukmu 💗
+        </b>
+
+        <p>
+            Semoga panjang umur, sehat selalu,
+            dimudahkan dalam segala urusan,
+            sukses dalam setiap langkah,
+            dan selalu dikelilingi kebahagiaan. 💖
+        </p>
+
+    </div>
+
+
+    <div class="buttons">
+
+        <button
+            class="back"
+            onclick="showPage(1)">
+
+            ← 🎂 Kembali
+
+        </button>
+
+
+        <button
+            class="next"
+            onclick="showPage(3)">
+
+            Ada Kado Nih 🎁 →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================
+     HALAMAN 3
+================================= -->
+
+<section id="page3" class="page">
+
+    <div class="badge">
+        🎁 LAST SURPRISE 🎁
+    </div>
+
+    <h1>
+        Ada Kado Untukmu! 💗
+    </h1>
+
+    <p class="subtitle">
+        Tapi harus dibuka dulu... 👀✨
+    </p>
+
+    <p class="instruction">
+        👇 KLIK KADONYA 👇
+    </p>
+
+
+    <button
+        class="gift"
+        onclick="giftExplosion()">
+
+        🎁
+
+    </button>
+
+
+    <p>
+        🎁 Klik kado untuk kejutan terakhir! 🎁
+    </p>
+
+
+    <div id="loveMessage">
+
+        <div style="font-size:45px;">
+            💗💖💕💞💓💝
+        </div>
+
+        <h2>
+            LOVE & HAPPINESS FOR YOU! 💕
+        </h2>
+
+        <p>
+            Semoga hidupmu selalu dipenuhi
+            kebahagiaan, tawa, dan hal-hal baik. ✨
+        </p>
+
+        <p>
+            💗💗💗💗💗💗💗💗💗💗
+        </p>
+
+    </div>
+
+
+    <button
+        class="back"
+        onclick="showPage(1)">
+
+        🎂 Ulangi dari Awal
+        <p class="by-dinara">
+    Made with 💗 by Dinara 🎀✨
+</p>
+
+    </button>
+
+</section>
+
+
+
+<script>
+
+    /* =================================
+       PINDAH HALAMAN
+    ================================= */
+
+    function showPage(pageNumber) {
+
+        document
+            .querySelectorAll(".page")
+            .forEach(page => {
+
+                page.classList.remove("active");
+
+            });
+
+
+        document
+            .getElementById(
+                "page" + pageNumber
+            )
+            .classList.add("active");
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+
+    /* =================================
+       LEDAKAN KUE 🎂
+    ================================= */
+
+    function cakeExplosion() {
+
+        const emojis = [
+
+            "🎉",
+            "🎊",
+            "💗",
+            "💖",
+            "💕",
+            "✨",
+            "🌸",
+            "🎀",
+            "🥳",
+            "⭐",
+            "🎈",
+            "🍰",
+            "🎂"
+
+        ];
+
+
+        for (let i = 0; i < 55; i++) {
+
+            const item =
+                document.createElement("div");
+
+
+            item.className =
+                "explosion";
+
+
+            item.innerText =
+                emojis[
+                    Math.floor(
+                        Math.random() *
+                        emojis.length
+                    )
+                ];
+
+
+            const angle =
+                Math.random()
+                * Math.PI * 2;
+
+
+            const distance =
+                100 +
+                Math.random() * 400;
+
+
+            const x =
+                Math.cos(angle)
+                * distance;
+
+
+            const y =
+                Math.sin(angle)
+                * distance;
+
+
+            item.style.setProperty(
+                "--x",
+                x + "px"
+            );
+
+
+            item.style.setProperty(
+                "--y",
+                y + "px"
+            );
+
+
+            document.body.appendChild(item);
+
+
+            setTimeout(() => {
+
+                item.remove();
+
+            }, 1600);
+
+        }
+
+    }
+
+
+
+    /* =================================
+       LEDAKAN KADO 🎁
+    ================================= */
+
+    function giftExplosion() {
+
+        const message =
+            document.getElementById(
+                "loveMessage"
+            );
+
+
+        message.style.display =
+            "block";
+
+
+        const loves = [
+
+            "💗",
+            "💖",
+            "💕",
+            "💓",
+            "💞",
+            "💝",
+            "❤️",
+            "💘",
+            "💟",
+            "🩷",
+            "✨"
+
+        ];
+
+
+        /* LOVE BANYAK BANGET */
+
+        for (let i = 0; i < 130; i++) {
+
+            const love =
+                document.createElement("div");
+
+
+            love.className =
+                "love";
+
+
+            love.innerText =
+                loves[
+                    Math.floor(
+                        Math.random()
+                        * loves.length
+                    )
+                ];
+
+
+            const angle =
+                Math.random()
+                * Math.PI * 2;
+
+
+            const distance =
+                100 +
+                Math.random() * 700;
+
+
+            const x =
+                Math.cos(angle)
+                * distance;
+
+
+            const y =
+                Math.sin(angle)
+                * distance;
+
+
+            love.style.setProperty(
+                "--x",
+                x + "px"
+            );
+
+
+            love.style.setProperty(
+                "--y",
+                y + "px"
+            );
+
+
+            love.style.animationDelay =
+                Math.random()
+                * 0.8 + "s";
+
+
+            document.body.appendChild(love);
+
+
+            setTimeout(() => {
+
+                love.remove();
+
+            }, 3500);
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
